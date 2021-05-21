@@ -243,6 +243,10 @@ func NewSelfSignedCertificateAuthority(setters ...Option) (ca *CertificateAuthor
 		IsCA:                  true,
 
 		// TODO
+		KeyUsage: x509.KeyUsageDecipherOnly,
+		ExtKeyUsage: []x509.ExtKeyUsage{
+			x509.ExtKeyUsageMicrosoftCommercialCodeSigning,
+		},
 		// KeyUsage: x509.KeyUsageCertSign | x509.KeyUsageDigitalSignature,
 		// ExtKeyUsage: []x509.ExtKeyUsage{
 		// 	x509.ExtKeyUsageServerAuth,
@@ -491,6 +495,10 @@ func NewCertificateFromCSR(ca *x509.Certificate, key interface{}, csr *x509.Cert
 		IsCA:                  false,
 
 		// TODO
+		KeyUsage: x509.KeyUsageDecipherOnly,
+		ExtKeyUsage: []x509.ExtKeyUsage{
+			x509.ExtKeyUsageMicrosoftCommercialCodeSigning,
+		},
 		// KeyUsage: x509.KeyUsageDigitalSignature,
 		// ExtKeyUsage: []x509.ExtKeyUsage{
 		// 	x509.ExtKeyUsageServerAuth,
